@@ -1,5 +1,12 @@
+<div align="center">
+
 # Twitter Button
-Create Magic Twitter Button for README.md
+Create Magic Twitter Button for README.md like that
+
+[![Share on Twitter](https://img.shields.io/badge/-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Hello%20world)
+
+</div>
+
 
 
 
