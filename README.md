@@ -1,4 +1,4 @@
-# twitter-button
+# Twitter Button
 Create Magic Twitter Button for README.md
 
 
