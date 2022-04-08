@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐦 Twitter Button
+# Twitter Button
 
 *Create Magic Twitter Button for your README.md*  
   
