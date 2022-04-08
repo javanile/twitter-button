@@ -3,7 +3,7 @@
 # Twitter Button
 Create Magic Twitter Button for README.md 
   
-like that  
+**like this**
 [![Share on Twitter](https://img.shields.io/badge/-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Hello%20world)
 
 </div>
