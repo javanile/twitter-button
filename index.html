@@ -9,26 +9,26 @@
 <h1>Twitter Button</h1>
 
 <h3>Get Started</h3>
-<p>
-Type to the following area the content to share on Twitter
-</p>
-<textarea placeholder="Write a wonderful tweet here..." rows="6"></textarea>
+<p>Type to the following area the content to share on Twitter</p>
+<textarea id="tweet" placeholder="Write a wonderful tweet here..." rows="6"></textarea>
 
 <h3>Look & Feel</h3>
-
-<select>
-  <option>Magic Button</option>
+<p>Type to the following area the content to share on Twitter</p>
+<select id="look-and-feel">
+  <option value="magic_button">Magic Button</option>
+  <option value="magic_button_small">Magic Button (Small)</option>
+  <option value="magic_button_large">Magic Button (Large)</option>
 </select>
 
 <h3>Preview</h3>
-
-<section align="center">
+<p>Type to the following area the content to share on Twitter</p>
+<section id="preview" align="center">
   <a href="https://twitter.com/intent/tweet?text=Hello%20world" target="_blank" rel="nofollow"><img src="https://camo.githubusercontent.com/f2bbc2f18671219cc944bb2de787f6499d4d9c291e5e969fea47ef3b2791da48/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d73686172652532306f6e253230747769747465722d626c75653f6c6f676f3d74776974746572267374796c653d666f722d7468652d6261646765" alt="Share on Twitter" data-canonical-src="https://img.shields.io/badge/-share%20on%20twitter-blue?logo=twitter&amp;style=for-the-badge" style="max-width: 100%;"></a>
 </section>
 
 <h3>Copy & Paste</h3>
-
-<textarea rows="6" readonly>[![Share on Twitter](https://img.shields.io/badge/-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Hello%20world)</textarea>
+<p>Type to the following area the content to share on Twitter</p>
+<textarea id="markdown" rows="6" readonly>[![Share on Twitter](https://img.shields.io/badge/-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Hello%20world)</textarea>
 <div align="center">
   <button>Copy to Clipboard</button>
 </div>
@@ -47,7 +47,40 @@ Type to the following area the content to share on Twitter
 <a href="https://github.com/javanile/password" target="_blank"><img src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149" style="position:absolute;top:0;right:0;border:0;" width="149" height="149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1" /></a>
 
 <script type="text/javascript">
-document.getElementById('mysql').innerHTML += generatePassword(32, false);
+  const tweet = document.getElementById('tweet');
+  const lookAndFeel = document.getElementById('look-and-feel');
+  const preview = document.getElementById('preview');
+  const markdown = document.getElementById('markdown');
+  const previewTemplate = '<a href="https://twitter.com/intent/tweet?text={tweet}" target="_blank" rel="nofollow"><img src="{image}" alt="Share on Twitter" style="max-width: 100%;"></a>';
+  const markdownTemplate = '[![Share on Twitter]({image})](https://twitter.com/intent/tweet?text={tweet})';
+  const buttonLookAndFeels = {
+    magic_button: 'https://img.shields.io/badge/-share%20on%20twitter-blue?logo=twitter&amp;style=for-the-badge',
+    magic_button_small: 'https://img.shields.io/badge/-Share%20on%20Twitter-blue?logo=twitter&amp;style=flat-square',
+    magic_button_large: 'https://img.shields.io/badge/Twitter-share%20on%20twitter-blue?logo=twitter&amp;style=for-the-badge'
+  };
+
+  function updateButton() {
+    preview.innerHTML = previewTemplate
+      .replace('{tweet}', encodeURIComponent(tweet.value))
+      .replace('{image}', buttonLookAndFeels[lookAndFeel.value]);
+    markdown.innerHTML = markdownTemplate
+      .replace('{tweet}', encodeURIComponent(tweet.value))
+      .replace('{image}', buttonLookAndFeels[lookAndFeel.value]);
+  }
+
+  function refreshButton() {
+    if (tweet.value != this.lastTweet) {
+      this.lastTweet = tweet.value;
+      updateButton();
+    }
+  }
+
+  tweet.addEventListener('change', updateButton, true)
+  lookAndFeel.addEventListener('change', updateButton, true)
+
+  setInterval(refreshButton, 3000);
+
+  refreshButton();
 </script>
 </body>
 </html>
