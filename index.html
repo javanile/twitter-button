@@ -30,7 +30,8 @@
 <p>Type to the following area the content to share on Twitter</p>
 <textarea id="markdown" rows="6" readonly>[![Share on Twitter](https://img.shields.io/badge/-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Hello%20world)</textarea>
 <div align="center">
-  <button>Copy to Clipboard</button>
+  <button id="copy-to-clipboard">Copy to Clipboard</button>
+  <div id="message"></div>
 </div>
 
 <h3>License</h3>
@@ -51,6 +52,8 @@
   const lookAndFeel = document.getElementById('look-and-feel');
   const preview = document.getElementById('preview');
   const markdown = document.getElementById('markdown');
+  const message = document.getElementById('message');
+  const copyToClipboard = document.getElementById('copy-to-clipboard');
   const previewTemplate = '<a href="https://twitter.com/intent/tweet?text={tweet}" target="_blank" rel="nofollow"><img src="{image}" alt="Share on Twitter" style="max-width: 100%;"></a>';
   const markdownTemplate = '[![Share on Twitter]({image})](https://twitter.com/intent/tweet?text={tweet})';
   const buttonLookAndFeels = {
@@ -60,6 +63,7 @@
   };
 
   function updateButton() {
+    message.innerHTML = '';
     preview.innerHTML = previewTemplate
       .replace('{tweet}', encodeURIComponent(tweet.value))
       .replace('{image}', buttonLookAndFeels[lookAndFeel.value]);
@@ -75,8 +79,16 @@
     }
   }
 
-  tweet.addEventListener('change', updateButton, true)
-  lookAndFeel.addEventListener('change', updateButton, true)
+  function copyMarkdown() {
+    markdown.select();
+    document.execCommand('Copy');
+    message.innerHTML = 'Markdown was copied!';
+  }
+
+  tweet.addEventListener('change', updateButton, true);
+  lookAndFeel.addEventListener('change', updateButton, true);
+  markdown.addEventListener('focus', markdown.select, true);
+  copyToClipboard.addEventListener('click', copyMarkdown, true);
 
   setInterval(refreshButton, 3000);
 
