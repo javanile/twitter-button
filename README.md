@@ -13,10 +13,7 @@ like this
 
 Grow your project by putting a fantastic button that will allow your users to easily share your work on Twitter. Use the online tool to build your button
 
-<div align="center">
-Visit  
-[https://twitter.javanile.org](https://twitter.javanile.org)
-</div>
+- Visit this: [https://twitter.javanile.org](https://twitter.javanile.org)
 
 ### Contributing
 
