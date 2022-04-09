@@ -15,18 +15,18 @@ Grow your project by putting a fantastic button that will allow your users to ea
 
 - Visit this: [https://twitter.javanile.org](https://twitter.javanile.org)
 
-### Contributing
+## Contributing
 
 Thank you for considering contributing to this project! The contribution guide can be found in the [CONTRIBUTING.md](CONTRIBUTING.md).
 
-### Code of Conduct
+## Code of Conduct
 
 In order to ensure that the Javanile community is welcoming to all, please review and abide by the [Code of Conduct](CONTRIBUTING.md#code-of-conduct).
 
-### Security Vulnerabilities
+## Security Vulnerabilities
 
 If you discover a security vulnerability within Javanile, please send an e-mail to Francesco Bianco via [bianco@javanile.org](mailto:bianco@javanile.org). All security vulnerabilities will be promptly addressed.
 
-### License
+## License
 
 This project is open-sourced software licensed under the [MIT license](LICENSE).
